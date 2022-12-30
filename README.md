@@ -1,46 +1,48 @@
-# Getting Started with Create React App
+# Check the code for CDN77
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I used CRAP to get the code running from my older project.
 
-## Available Scripts
+I chosed a TDD snippet I wrote that is trying to resolve conflicts between multiple sources of the same JSON file stored in the backend.
 
-In the project directory, you can run:
+I picked this because it is simple and well testable code. You can take look at [Avocode Forever](https://inspect.ceros.com//) (now running under Ceros brand) to check the whole project we made together where this code ran.
 
-### `npm start`
+The former Avocode app is available as a freemium.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Check the code
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The files are:
 
-### `npm test`
+```
+./src/variable-utils.ts
+./src/variable-utils.spec.ts
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Scripts to run
 
-### `npm run build`
+### `yarn test variable-utils.spec.ts`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The tests are passing and were passing right when I copied the code :).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Run:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+$ yarn test variable-utils.spec.ts
+```
 
-### `npm run eject`
+### `yarn start`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Only starts a webserver telling you the same.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Some other interesting code
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+I was dissatisfied with the state of Redux and middleware, particulary side-effects handling.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+I tried Saga or Redux Observables but it all seemed to me that it doesn't fit the architecture we developed at Avocode.
 
-## Learn More
+We used to use Angular-style dependency injector.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+So I proposed [this change](https://github.com/reduxjs/redux-thunk/issues/277) to the `redux-thunk`. It was rejected as it was too advanced as per the community.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Nevertheless, I published it anyway to the NPM and we used it in our projects.
+
+Check it here (https://github.com/vojtatranta/redux-thunk)
