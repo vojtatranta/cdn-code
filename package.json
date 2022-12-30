@@ -10,6 +10,7 @@
     "@types/node": "^16.18.11",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
+    "immutable": "avocode/immutable-js#0d8c7ce51b1a62341350f84dd32ab94d6839cab4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
